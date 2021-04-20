@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    @*<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">*@
+    <title>@ViewData["Title"] - Clinic.Web</title>
+    <link rel="shortcut icon" type="image/x-icon" href="~/assets/img/favicon.ico">
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/assets/css/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/bootstrap-datetimepicker.min.css">
+    <link href="~/assets/css/style.css" rel="stylesheet" />
+    <!--[if lt IE 9]>
+        <script src="~/assets/js/html5shiv.min.js"></script>
+        <script src="~/assets/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="main-wrapper">
+        @await Html.PartialAsync("_Header")
+
+        <!-- =============================================== -->
+        <!-- Left side column. contains the sidebar -->
+        @await Html.PartialAsync("_SideBar")
+        <!-- Content Wrapper. Contains page content -->
+        <div class="page-wrapper">
+
+            @RenderBody()
+        </div>
+    </div>
+
+    @RenderSection("Scripts", required: false)
+   
+</body>
+</html>

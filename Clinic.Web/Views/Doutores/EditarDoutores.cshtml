@@ -1,0 +1,424 @@
+﻿@model Clinic.Dominio.Entities.Doutores
+@{
+    ViewData["Title"] = "EditarDoutores";
+}
+
+<div class="content">
+    <div class="row">
+        <div class="col-sm-4 col-3">
+            <h4 class="page-title">Edit Doutores</h4>
+        </div>
+        <div class="col-sm-8 col-9 text-right m-b-20">
+            <a href=@Url.Action("Index","Doutores") class="btn btn-primary btn-rounded"><i class="fa fa-backward"></i> Voltar</a>
+        </div>
+        @*<div class="col-sm-12">
+            <h4 class="page-title">Edit Doutores</h4>
+        </div>*@
+    </div>
+    <form asp-action="EditarDoutores" method="post">
+        <div class="card-box">
+            <h3 class="card-title">Informações Básicas</h3>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="profile-img-wrap">
+                        <img class="inline-block" src="@Url.Content(Model.UrlFoto)" alt="user">
+                        <div class="fileupload btn">
+                            <span class="btn-text">edit</span>
+                            <input class="upload" type="file">
+                        </div>
+                    </div>
+                    <div class="profile-basic">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label" asp-for="Nome">Primeiro Nome</label>
+                                    <input type="text" class="form-control floating" asp-for="Nome">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label" asp-for="Sobrenome">Último Nome</label>
+                                    <input type="text" class="form-control floating" asp-for="Sobrenome">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label" asp-for="DataNascimento">Data de Nascimento</label>
+                                    <div class="cal-icon">
+                                        <input class="form-control floating datetimepicker" type="text" asp-for="DataNascimento">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-focus select-focus">
+                                    <label class="focus-label" asp-for="Sexo">Sexo</label>
+                                    <select class="select form-control floating" asp-for="Sexo">
+                                        <option value="M">Masculino</option>
+                                        <option value="F">Feminino</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label" asp-for="Especialidade">Especialidade</label>
+                                    <input type="text" class="form-control floating" asp-for="Especialidade">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label" asp-for="Email">E-mail</label>
+                                    <input type="text" class="form-control floating" asp-for="Email">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-box">
+            <h3 class="card-title">Informações de Contato</h3>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group form-focus">
+                        <label class="focus-label" asp-for="Endereco">Endereço</label>
+                        <input type="text" class="form-control floating" asp-for="Endereco">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group form-focus">
+                        <label class="focus-label" asp-for="Cidade">Cidade</label>
+                        <input type="text" class="form-control floating" asp-for="Cidade">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group form-focus">
+                        <label class="focus-label" asp-for="Pais">País</label>
+                        <input type="text" class="form-control floating" asp-for="Pais">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group form-focus">
+                        <label class="focus-label">Pin Code</label>
+                        <input type="text" class="form-control floating" value="10523">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group form-focus">
+                        <label class="focus-label" asp-for="Telefone">Número de Telefone</label>
+                        <input type="text" class="form-control floating" data-inputmask="'mask': '(99)9999-9999'" asp-for="Telefone">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-box">
+            <h3 class="card-title">Informação de Formação</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group form-focus">
+                        <label class="focus-label" asp-for="Escola">Instituição</label>
+                        <input type="text" class="form-control floating" asp-for="Escola">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group form-focus">
+                        <label class="focus-label" asp-for="Curso">Curso</label>
+                        <input type="text" class="form-control floating" asp-for="Curso">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group form-focus">
+                        <label class="focus-label" asp-for="DataInicio">Data Início</label>
+                        <div class="cal-icon">
+                            <input type="text" class="form-control floating datetimepicker" asp-for="DataInicio">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group form-focus">
+                        <label class="focus-label" asp-for="DataFim">Data Fim</label>
+                        <div class="cal-icon">
+                            <input type="text" class="form-control floating datetimepicker" asp-for="DataFim">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group form-focus">
+                        <label class="focus-label" asp-for="Grau">Grau</label>
+                        <input type="text" class="form-control floating" asp-for="Grau">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group form-focus">
+                        <label class="focus-label">Grade</label>
+                        <input type="text" class="form-control floating" value="Grade A">
+                    </div>
+                </div>
+            </div>
+            <div class="add-more">
+                <a href="#" class="btn btn-primary"><i class="fa fa-plus"></i> Add Mais Instituição</a>
+            </div>
+        </div>
+        <div class="card-box">
+            <h3 class="card-title">Experiência Profissional</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group form-focus">
+                        <label class="focus-label" asp-for="Empresa">Empresa</label>
+                        <input type="text" class="form-control floating" asp-for="Empresa">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group form-focus">
+                        <label class="focus-label" asp-for="CidadeEmpresa">Localização</label>
+                        <input type="text" class="form-control floating" asp-for="CidadeEmpresa">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group form-focus">
+                        <label class="focus-label" asp-for="Posicao">Posição</label>
+                        <input type="text" class="form-control floating" asp-for="Posicao">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group form-focus">
+                        <label class="focus-label" asp-for="PeriodoDe">Período De</label>
+                        <div class="cal-icon">
+                            <input type="text" class="form-control floating datetimepicker" asp-for="PeriodoDe">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group form-focus">
+                        <label class="focus-label" asp-for="PeriodoAte">Período Até</label>
+                        <div class="cal-icon">
+                            <input type="text" class="form-control floating datetimepicker" asp-for="PeriodoAte">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="add-more">
+                <a href="#" class="btn btn-primary"><i class="fa fa-plus"></i> Add Mais Experiência</a>
+            </div>
+        </div>
+        <div class="text-center m-t-20">
+            <button class="btn btn-primary submit-btn" type="submit">Editar</button>
+        </div>
+    </form>
+</div>
+<div class="notification-box">
+    <div class="msg-sidebar notifications msg-noti">
+        <div class="topnav-dropdown-header">
+            <span>Messages</span>
+        </div>
+        <div class="drop-scroll msg-list-scroll" id="msg_list">
+            <ul class="list-box">
+                <li>
+                    <a href="chat.html">
+                        <div class="list-item">
+                            <div class="list-left">
+                                <span class="avatar">R</span>
+                            </div>
+                            <div class="list-body">
+                                <span class="message-author">Richard Miles </span>
+                                <span class="message-time">12:28 AM</span>
+                                <div class="clearfix"></div>
+                                <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="chat.html">
+                        <div class="list-item new-message">
+                            <div class="list-left">
+                                <span class="avatar">J</span>
+                            </div>
+                            <div class="list-body">
+                                <span class="message-author">John Doe</span>
+                                <span class="message-time">1 Aug</span>
+                                <div class="clearfix"></div>
+                                <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="chat.html">
+                        <div class="list-item">
+                            <div class="list-left">
+                                <span class="avatar">T</span>
+                            </div>
+                            <div class="list-body">
+                                <span class="message-author"> Tarah Shropshire </span>
+                                <span class="message-time">12:28 AM</span>
+                                <div class="clearfix"></div>
+                                <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="chat.html">
+                        <div class="list-item">
+                            <div class="list-left">
+                                <span class="avatar">M</span>
+                            </div>
+                            <div class="list-body">
+                                <span class="message-author">Mike Litorus</span>
+                                <span class="message-time">12:28 AM</span>
+                                <div class="clearfix"></div>
+                                <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="chat.html">
+                        <div class="list-item">
+                            <div class="list-left">
+                                <span class="avatar">C</span>
+                            </div>
+                            <div class="list-body">
+                                <span class="message-author"> Catherine Manseau </span>
+                                <span class="message-time">12:28 AM</span>
+                                <div class="clearfix"></div>
+                                <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="chat.html">
+                        <div class="list-item">
+                            <div class="list-left">
+                                <span class="avatar">D</span>
+                            </div>
+                            <div class="list-body">
+                                <span class="message-author"> Domenic Houston </span>
+                                <span class="message-time">12:28 AM</span>
+                                <div class="clearfix"></div>
+                                <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="chat.html">
+                        <div class="list-item">
+                            <div class="list-left">
+                                <span class="avatar">B</span>
+                            </div>
+                            <div class="list-body">
+                                <span class="message-author"> Buster Wigton </span>
+                                <span class="message-time">12:28 AM</span>
+                                <div class="clearfix"></div>
+                                <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="chat.html">
+                        <div class="list-item">
+                            <div class="list-left">
+                                <span class="avatar">R</span>
+                            </div>
+                            <div class="list-body">
+                                <span class="message-author"> Rolland Webber </span>
+                                <span class="message-time">12:28 AM</span>
+                                <div class="clearfix"></div>
+                                <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="chat.html">
+                        <div class="list-item">
+                            <div class="list-left">
+                                <span class="avatar">C</span>
+                            </div>
+                            <div class="list-body">
+                                <span class="message-author"> Claire Mapes </span>
+                                <span class="message-time">12:28 AM</span>
+                                <div class="clearfix"></div>
+                                <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="chat.html">
+                        <div class="list-item">
+                            <div class="list-left">
+                                <span class="avatar">M</span>
+                            </div>
+                            <div class="list-body">
+                                <span class="message-author">Melita Faucher</span>
+                                <span class="message-time">12:28 AM</span>
+                                <div class="clearfix"></div>
+                                <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="chat.html">
+                        <div class="list-item">
+                            <div class="list-left">
+                                <span class="avatar">J</span>
+                            </div>
+                            <div class="list-body">
+                                <span class="message-author">Jeffery Lalor</span>
+                                <span class="message-time">12:28 AM</span>
+                                <div class="clearfix"></div>
+                                <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="chat.html">
+                        <div class="list-item">
+                            <div class="list-left">
+                                <span class="avatar">L</span>
+                            </div>
+                            <div class="list-body">
+                                <span class="message-author">Loren Gatlin</span>
+                                <span class="message-time">12:28 AM</span>
+                                <div class="clearfix"></div>
+                                <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="chat.html">
+                        <div class="list-item">
+                            <div class="list-left">
+                                <span class="avatar">T</span>
+                            </div>
+                            <div class="list-body">
+                                <span class="message-author">Tarah Shropshire</span>
+                                <span class="message-time">12:28 AM</span>
+                                <div class="clearfix"></div>
+                                <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="topnav-dropdown-footer">
+            <a href="chat.html">See all messages</a>
+        </div>
+    </div>
+</div>
+<script src="~/assets/js/jquery-3.2.1.min.js"></script>
+<script src="~/assets/js/popper.min.js"></script>
+<script src="~/assets/js/bootstrap.min.js"></script>
+<script src="~/assets/js/jquery.slimscroll.js"></script>
+<script src="~/assets/js/select2.min.js"></script>
+<script src="~/assets/js/moment.min.js"></script>
+<script src="~/assets/js/bootstrap-datetimepicker.min.js"></script>
+<script src="~/assets/js/app.js"></script>
